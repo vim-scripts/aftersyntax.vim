@@ -1,0 +1,15 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=1023
+
+Currently one may have a single syntax file per filetype in the .vim/after/syntax directory.  Such files are loaded after the main syntax handling file, and are used to provide additional customized syntax highlighting.  But, what if you want two or more such files for some filetype?  <aftersyntax.vim> solves just that problem...
+
+For example, consider the C language and Andreechtchev Eugeni's opengl.vim extension for recognizing OpenGL functions and constants (vimscript#752) plus my blockhl.vim (vimscript#104) for highlighting leading tabs based on {} depth:
+
+	Example:
+	1. cd .vim/after/syntax
+	2. mkdir c
+	3. mv (wherever)/aftersyntax.vim c.vim
+	4. mv opengl.vim  c
+	5. mv blockhl.vim c
+
+Every time a C file is opened, both opengl.vim and blockhl.vim are sourced to provide their extra highlighting.
+
